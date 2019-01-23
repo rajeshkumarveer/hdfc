@@ -1,0 +1,752 @@
+<html>
+<head>
+<style>
+
+ul.top{
+background-color:navy;
+list-style-type:none;
+padding-top:5px;
+}
+li{
+display:inline-block;
+font-size:16px;
+font-weight:200px;
+color:white;
+padding-left: 15px;
+padding-right:15px;
+position:relative;
+left:620px;
+}
+.grid{
+display:grid;
+grid-template-columns:200px 220px 200px;
+grid-column-gap:152px;
+position:relative;
+left:380px;
+}
+#absolute{
+position:absolute;
+left:430px;
+down:10px;
+}
+ul.home{
+list-style-type:none;
+}
+#a{
+display:inline-block;
+font-size:17px;
+font-weight:500px;
+color:#3968DB;
+padding-left: 17px;
+padding-right:17px;
+position:relative;
+left:325px;
+}
+.b{
+border-right: 1px solid grey;
+border-left: 1px solid grey;
+}
+.fix{
+display:fixed;
+}
+#c{
+font-size:22px;
+font-weight:900px;
+color:white;
+position:relative;
+left:525px;
+down:10px;
+}
+.rimg{
+display:grid;
+grid-template:120px 120px / 120px 120px 120px 120px;
+grid-gap:15px 15px;
+position:relative;
+left:390px;
+}
+.start{
+background-image:url("data:image/webp;base64,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");
+background-size:65% 100%;
+padding-top:10px;
+display:grid;
+grid-template-columns:950px 380px;
+padding-bottom:16px;
+}
+.arrow{
+position:relative;
+left:590px;
+padding-top:10px;
+}
+select{
+width:100px;
+}
+input[type=search]
+{
+width:250px;
+padding:10px;
+position:relative;
+top:6px;left:2px;
+}
+input[type=submit]:hover{
+background-color:white;
+color:red;
+border:1px solid red;
+}
+select {
+    width:220px;
+padding:8px;
+}
+input[type=submit]{
+width:90px;
+background-color:red;
+margin-left:10px;
+padding:8px;
+}
+#b{
+color:#3968DB;
+display:inline-block;
+padding-left:5px;
+}
+#spana{
+padding-right:8px;
+}
+#spanb{
+border-left: 2px solid grey;
+padding-left:8px;
+}
+.choose{
+background-color:white;
+border-radius:4px;
+width:345px;
+padding:5px;
+margin-bottom:10px;
+}
+pre{
+font-size:15;
+}
+#marquee{
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+}
+#linkgrid{
+display:grid;
+grid-template-columns:325px 325px 330px;
+position:relative;
+right:300px;
+padding:15px;
+height: 260px;
+}
+ul.tgrid{
+list-style-type:none;
+}
+#l{
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+font-size:18px;
+font-weight:50px;
+color:RGB(27, 38, 49);
+display:block;
+padding:12px;
+padding-left:20px;
+}
+#lb{
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+font-size:18px;
+font-weight:50px;
+color:RGB(27, 38, 49);
+padding:12px;
+padding-left:20px;
+position:relative;
+left:0px;
+}
+#lin{
+width:325px;
+height:240px;
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+overflow-y:scroll;
+position:relative;
+left:640px;
+
+}
+#heal{
+position:relative;
+left:670px;
+font-size:22px;
+color:navy;
+font-weight:700px;
+}
+#heal1{
+position:relative;
+left:390px;
+top:50px;
+font-size:22px;
+color:navy;
+font-weight:700px;
+}
+.mimg{
+display:grid;
+grid-template-columns:310px 310px 310px 310px;
+grid-gap:10px;
+width:950px;
+overflow-y:scroll;
+position:relative;
+left:370px;top:50px;
+}
+.fstar{
+display:grid;
+grid-template-columns:195px 195px 195px 195px 195px ;
+text-align:center;
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+position:relative;
+left:360px;
+top:50px;
+width:970px;
+}
+.fstar1{
+background-color:RGB(242, 243, 244);
+}
+#tf{
+display:grid;
+grid-template-columns:80px 520px ;
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+}
+#roll{
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+width:630px;
+height:200px;
+overflow-y:scroll;
+}
+#heal2{
+position:relative;
+left:1020px;
+font-size:22px;
+color:navy;
+font-weight:700px;
+}
+#teo{
+display:grid;
+grid-template-columns:630px 300px;
+grid-gap:30px;
+position:relative;
+left:360px;
+}
+#twin{
+display:grid;
+grid-template-rows:200px 45px;
+background-color:RGB(242, 243, 244);
+border-bottom:3px solid RGB(229, 231, 233);
+height:245px;
+}
+#big{
+font-size:18px;
+fony-weight:900px;
+color:navy;
+padding-left:30px;
+}
+#timg{
+display:grid;
+grid-template-columns:312px 312px 312px;
+grid-gap:15px;
+position:relative;
+left:360px;
+padding-top:30px;
+}
+ul.z1{
+list-style-type:none;
+background-color:RGB(8, 113, 248);
+margin-top:70px;
+}
+#z{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:8px;
+padding-right:8px;
+padding-top:5px;
+margin:0px;
+font-size:13px;
+text-align:center;
+}
+.z3{
+border-right: 1px solid white;
+border-left: 1px solid white;
+}
+.z4{
+border-right: 1px solid white;
+}
+ul.y1{
+list-style-type:none;
+}
+#y1{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:8px;
+padding-right:8px;
+padding-top:5px;
+margin:0px;
+text-align:center;
+font-size:13px;
+}
+.footer{
+background-color:rgb(19, 92, 217);
+padding-bottom:30px;
+}
+ul.x1{
+list-style-type:none;
+}
+#x1{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:8px;
+padding-right:8px;
+margin:0px;
+text-align:center;
+font-size:13px;
+}
+ul.w1{
+list-style-type:none;
+width:700px;
+}
+#w{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:5px;
+padding-right:5px;
+margin:0px;
+font-size:12px;
+text-align:center;
+}
+.w3{
+border-right: 1px solid white;
+}
+ul.v1{
+list-style-type:none;
+width:650px;
+}
+#v{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:5px;
+padding-right:5px;
+margin:0px;
+font-size:12px;
+text-align:center;
+}
+.v3{
+border-right: 1px solid white;
+}
+#vf{
+display:grid;
+grid-template-columns:70px 70px;
+grid-gap:35px;
+background-color:rgb(19, 92, 217));
+padding-top:50px;
+}
+.join{
+display:grid;
+grid-template-columns:1000px 200px;
+grid-gap:55px;
+background-color:rgb(19, 92, 217);
+}
+ul.u1{
+list-style-type:none;
+width:450px;
+}
+#u{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:5px;
+padding-right:5px;
+margin:0px;
+font-size:12px;
+text-align:center;
+}
+.u3{
+border-right: 1px solid white;
+}
+ul.t1{
+list-style-type:none;
+}
+#t{
+display:inline-block ;
+color:white;
+position:relative;
+left:320px;
+padding-left:5px;
+padding-right:5px;
+margin:0px;
+font-size:12px;
+}
+ul.s1{
+list-style-type:none;
+}
+#s{
+display:inline-block ;
+color:white;
+position:relative;
+left:325px;
+font-size:12px;
+margin:0px;
+padding:0px;
+}
+.fixed{
+position:fixed;
+left:1530px;top:1030px;
+}
+#hv {
+width="115px";height="115px";
+transition-property: width, height;
+transition-duration: 0.25s;
+}
+#hv:hover {
+width: 125px;
+height: 125px;
+}
+#arrow:hover{
+opacity:0.75;
+}
+#first{
+color:black;
+background-color:white;
+border-top-left-radius: 20px 10px;
+border-top-right-radius: 20px 10px;
+
+padding-bottom:0px;
+margin-bottom:0px;
+border-bottom:5px solid white;
+padding-top:3px;
+}
+.tt:hover{
+opacity:0.80;
+}
+#marquee:hover{
+onmousedown:this.stop();
+onmouseup:this.start();
+}
+#l:hover{
+padding-left:23px;
+opacity:0.9;
+}
+#lb:hover{
+padding-left:23px;
+opacity:0.9;
+}
+.v3:hover{
+color:white;
+text-decoration: underline;
+text-decoration-color:skyblue;
+}
+.u3:hover{
+color:white;
+text-decoration: underline;
+text-decoration-color:skyblue;
+}
+#w:hover{
+color:white;
+text-decoration: underline;
+text-decoration-color:skyblue;
+}
+#z:hover{
+color:white;
+text-decoration: underline;
+text-decoration-color:skyblue;
+}
+.s4:hover{
+color:white;
+text-decoration: underline;
+text-decoration-color:skyblue;
+}
+#dropdown{
+display: none;
+position: absolute;
+display:grid;
+grid-templare-
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 8px 16px;
+    color:#3968DB;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#asd:hover{
+color:white;
+background-color:#3968DB;
+}
+</style>
+</head>
+<body>
+<ul class="top">
+<li id="first"><a href="https://www.hdfcbank.com/"target="_self"style="color:black; text-decoration: underline;text-decoration-color:white;"><div class="dropdown">products<div class="dropdown-content"><a href="#">Accounts & Deposits</a><a href="#">Loans</a><a href="#">Cards</a><a href="#">Demat</a><a href="#">Investments</a><a href="#">Insurance</a><a href="#">Forex</a><a href="#">Premier Banking</a><a href="#">Private Banking</a></div></div></a></li>
+<li><a href="https://www.hdfcbank.com/personal/HNW_Banking/hnw_banking"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;">Premier</a></li>
+<li><a href="https://www.hdfcbank.com/nri_banking/home.htm"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;">NRI</a></li>
+<li><a href="https://www.hdfcbank.com/personal/sme/sme-homepage"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;">SME</a></li>
+<li><a href="https://www.hdfcbank.com/wholesale/default.htm"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;">Wholesale</a></li>
+<li><a href="https://www.hdfcbank.com/htdocs/common/agri/index.html"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;">Agri</a></li>
+<li><a href="https://www.hdfcbank.com/personal/learning-center"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;">Learning Center</a></li>
+<li><a href="https://www.hdfcbank.com/"target="self"style="color:white;"><img src="https://www.hdfcbank.com/assets/images/bell_24x24.png"height="23px"width="23px"></a></li>
+</ul>
+<div class="fix">
+<div class="grid">
+<div id="absolute"><a href="https://www.hdfcbank.com/"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;"><img src="Screenshots/search.png"width="200px"height="45px"></a></div>
+<div>
+<a href="https://www.hdfcbank.com/"target="_self"style="color:white; text-decoration: underline;text-decoration-color:navy;"><img src="https://www.hdfcbank.com/assets/images/logo_hdfcbank.gif"heiht="50px"width"200px"></a>
+</div>
+<div><form>
+<input type="search" name="search"placeholder="search">
+</form></div>
+<div><a href="https://leads.hdfcbank.com/applications/new_webforms/apply/mobile/Home-Loan-Indians.aspx?Promocode=website_applynowbanner&SourceCode=website&CampaignID=desktop&_ga=2.118238734.686592019.1539255229-1389672563.1538740456"target="_self"><img src="https://www.hdfcbank.com/assets/images/Slug_banner_home_loan_new.gif"height="50px"width="200px"></a>
+</div></div>
+<ul class="home">
+<li id="a"><a href="https://www.hdfcbank.com/"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;"><img src="https://www.hdfcbank.com/assets/images/home-iconNew.jpg"height="25px"width="24px"></a></li>
+<li id="a"class="b"><a href="https://www.hdfcbank.com/personal/products"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;"></a><div class="dropdown">Products
+  <div class="dropdown-content">
+<a href="#" id="asd">Accounts & Deposits</a>
+<a href="#" id="asd">Loans</a>
+<a href="#" id="asd">Cards</a>
+<a href="#" id="asd">Demat</a>
+<a href="#" id="asd">Investments</a>
+<a href="#" id="asd">Insurance</a>
+<a href="#" id="asd">Forex</a>
+<a href="#" id="asd">Premier Banking</a>
+<a href="#" id="asd">Private Banking</a>
+  </div>
+</div></li>
+<li id="a"><a href="https://www.hdfcbank.com/personal/making_payments/making-payments-landing"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">Making payments</a></li>
+<li id="a"class="b"><a href="https://www.hdfcbank.com/"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">Apply now</a></li>
+<li id="a"><a href="https://www.hdfcbank.com/"target="_self"><img src="https://www.hdfcbank.com/assets/images/smartbuy_offers_tab.jpg"height="17px"width="100px"></a></li>
+<li id="a"class="b"><a href="https://www.hdfcbank.com/"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">Locate Us</a></li>
+<li id="a"><a href="https://www.hdfcbank.com/personal/ways_to_bank/ways-to-bank-landing"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">Way to bank</a></li>
+<li id="a"class="b"><a href="https://www.hdfcbank.com/personal/customer-centre?src=hp_top_nav"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">Customer Care</a></li>
+<ul>
+</div>
+<div class="start">
+<div>
+<p id="c">What are you looking for?</p>
+<div class="rimg">
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-pl.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-credit-cards.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-car-loan.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-las.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-forex-card.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-easyemi-coin.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/icon-savings.png"width="115px"height="115px"id="hv"></a></div>
+<div><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/product-services.png"width="115px"height="115px"id="hv"></a></div>
+</div>
+<div class="arrow"><a href="https://www.hdfcbank.com/"target="_self""><img src="https://www.hdfcbank.com/assets/images/declutter/next.png"width="100px"height"70px" id="arrow"></a></div>
+</div>
+<div>
+<div class="choose">
+<form>
+<select id="login" name="login">
+ <option value="a">NetBanking</option>
+ <option value="b">Prepaid/ Forex Card</option>
+ <option value="c">Verified by Visa/ MasterCard SecureCode/ Netsafe/ RuPay PaySecure</option>
+ <option value="d">Credit Card Login
+(if you do not hold HDFC Bank account)</option>
+</select>
+ <input type="submit" value="LOGIN">
+</form>
+<span id="b"><span id="spana"class="tt"><a href="https://www.hdfcbank.com/htdocs/common/NetBanking/product/ipin.html?src=hp"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">forgot IPIN(Password)</a></span>
+<span id="spanb"class="tt"><a href="https://netbanking.hdfcbank.com/netbanking/entry"target="_self"style="color:#3968DB;; text-decoration: underline;text-decoration-color:white;">Forgot Customer ID</a></span>
+</span>
+</div>
+<a href="https://www.hdfcbank.com/"target="_self"">
+<img src="https://cdn25.vizury.com/ssp/IN_HDFC_DMP/f7b1f55b-065d-4d4b-bec9-46f5170bab37.jpg"width="355px"height"450px"></a>
+</div>
+</div>
+<div id="marquee"  >
+<marquee hspace="380px"<marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()" ><pre><a href="https://netbanking.hdfcbank.com/netbanking/?_ga=2.218220062.686592019.1539255229-1389672563.1538740456"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Save on tax by investing in Atal Pension Yojana and secure your future.     Click here for details.Compare to get the best airfare and amazing offers on SmartBuy.       Click hereBook a Fixed Deposit now at attractive Interest Rates!         Save on tax by investing in Atal Pension Yojana and secure your future. Click here for details.</a>
+</pre></marquee></div>
+<div id="linkgrid">
+<div id="link"><p id="heal">Check Eligibility<p>
+<ul class="tgrid"><li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Credit Card</li></a>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Personal Loan</li></a>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Two Wheeler Loan</li></a>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Car Loan</li></a>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Home Loan</li></a></ul></div>
+<div><p id="heal">Quick Links<p>
+<div id="lin">
+<ul class="tgrid"><li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Trackaving a/c Application</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Track Personal Loan Request</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Loan Against Mutual Funds</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Government e-Marketplace</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Pradhan Mantri Mudra Yojana</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Security Awareness Quiz</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Invest in Sovereign Gold Bond online</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Aadhaar Enrolment Centres</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">HDFC Life Cancer Care</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Loan Against Shares Demo</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Buy Gift cards</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Interest Rates</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Financial Literacy</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Pradhan Mantri Suraksha Bima Yojana</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Pradhan Mantri Jeevan Jyoti Bima Yojana</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Forms Center</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Credit Card Tracker</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Forex Rates</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Phone Banking</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Credit Cards Rewards Redemption Program</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Track Salary a/c Application</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Track Two Wheeler Request</a></li>
+<li id="lb"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Track Auto loan Application</a></li></ul>
+</div></div>
+<div id="link"><p id="heal">Clalculators<p>
+<ul class="tgrid"><li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Credit Card Loan EMI Calculator</a></li>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Personal Loan EMI Calculator</a></li>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Car Loan EMI Calculator</a></li>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Two Wheeler Loan EMI Calculator</a></li>
+<li id="l"><a href="https://www.hdfcbank.com/personal/credit-card-emi-calculator"target="_self"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">-> SEE ALL</a></li></ul></div></div>
+<p id="heal1"><span style="background-color:red;border-radius:5px;color:white;padding:5px;font-size:15px;">New</span>Products & Services Launchad<p>
+<div class="fixed"><img src="https://hbchat.senseforth.com/HDFC_Chat/assets/newlogo.png"width="150px"height="150px"></div>
+<div class="mimg">
+<div><a href="https://www.hdfcbank.com/htdocs/wholesale/gs/government-eMarketplace.htm"><img src="https://www.hdfcbank.com/assets/images/CSA-new-products-services.jpg"width="310px"height="250px"></a></div>
+<div><a href="https://www.hdfcbank.com/htdocs/wholesale/gs/government-eMarketplace.htm"><img src="https://www.hdfcbank.com/assets/images/gtm-banner1.jpg"height="250px"width="310px"></a></div>
+<div><a href="https://www.hdfcbank.com/htdocs/wholesale/gs/government-eMarketplace.htm"><img src="https://www.hdfcbank.com/assets/images/Fastag_Banner_HDFC_Website.jpg"height="250px"width="310px"></a></div>
+<div><a href="https://www.hdfcbank.com/htdocs/wholesale/gs/government-eMarketplace.htm"><img src="https://www.hdfcbank.com/assets/images/SmartHub_Banner_HDFC_Website.jpg"height="250px"width="310px"></a></div>
+</div>
+<p id="heal1">Stay connected Digitally</p>
+<div class="fstar">
+<a href="https://www.hdfcbank.com/"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);"><div class="fstar1">Online<br><figure><img src="https://www.hdfcbank.com/assets/images/stay-online.png"width="50px"height"50px"><br><p>200+ transactions via NetBanking</p></div></a>
+<a href="https://www.hdfcbank.com/"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);"><div class="fstar1">Phone<br><figure><img src="https://www.hdfcbank.com/assets/images/stay-phone.png"width="50px"height"50px"><br><p>75+ transactions on your smartphone</p></div></a>
+<a href="https://www.hdfcbank.com/"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);"><div class="fstar1">Watch<br><figure><img src="https://www.hdfcbank.com/assets/images/stay-watch.png"width="50px"height"50px"><br><p>Banking at the flick of a wrist now</p></div></a>
+<a href="https://www.hdfcbank.com/"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);"><div class="fstar1">Chart with EVA<br><figure><img src="https://www.hdfcbank.com/assets/images/stay-chat.png"width="50px"height"50px"><br><p>Ask EVA for queries and latest offers</p></div></a>
+<a href="https://www.hdfcbank.com/"style="color:black; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);"><div class="fstar1">Online<br><figure><img src="https://www.hdfcbank.com/assets/images/stay-social.png"width="50px"height"50px"><br><p>Social media - Chatting, sharing + banking</p></div></a>
+</div>
+<p id="heal1">Learning Center</p><p id="heal2">What's New</p>
+<div id="teo">
+<div id="twin">
+<div id="roll">
+<div id="tf"><div><img src="https://www.hdfcbank.com/assets/images/LC/60-60.jpg"width"50px"height"80px"style="padding-top:10px;"></div><div><p style="color:navy;"><b><a href="https://www.hdfcbank.com/personal/learning-center/pay/what-are-the-benefits-of-a-credit-card"style="color:navy; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">What are the benefits of a credit card?</b></p></a>
+Be it booking a car ride or a movie ticket, purchasing expensive gadgets or a cool fashion accessory, shopping online or at a neighbourhood store, recharging your mobile or settling the utility bill, a credit card is one of the most convenient methods of payments.</div></div>
+<div id="tf"><div><img src="https://www.hdfcbank.com/assets/images/LC/abb60-60.jpg"width"50px"height"80px"style="padding-top:10px;"></div><div><p style="color:navy;"><b><a href="https://www.hdfcbank.com/personal/learning-center/pay/what-are-the-benefits-of-a-credit-card"style="color:navy; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Online shopping: How to get the best deals for maximum savings</b></p></a>
+While there are a million reasons to shop, the truth is that you don’t really need a reason or an occasion for it. To some, shopping can be a therapeutic experience; for others, it may be the indulgence that they like. Moreover, with sales and discounted prices available throughout the year, you don</div></div>
+<div id="tf"><div><img src="https://www.hdfcbank.com/assets/images/LC/shutterstock_701872057_60_%2060.jpg"width"50px"height"80px"style="padding-top:10px;"></div><div><p style="color:navy;"><b><a href="https://www.hdfcbank.com/personal/learning-center/pay/what-are-the-benefits-of-a-credit-card"style="color:navy; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">How to turn your home into a smart home</a></b></p>
+A smart home doesn’t have to remain in the realm of fantasy anymore. Rapid advancements in home automation technology have made it accessible to all. You can now have a smart home based on your needs and expectations – and budget</div></div>
+<div id="tf"><div><img src="https://www.hdfcbank.com/assets/images/LC/newnew-299-x-214.jpg"width"50px"height"80px"style="padding-top:10px;"></div><div>
+<p style="color:navy;"><b><a href="https://www.hdfcbank.com/personal/learning-center/pay/what-are-the-benefits-of-a-credit-card"style="color:navy; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Auto loans: Is applying online better than offline</a></b></p>
+Thinking of buying a car on loan? Here’s an interesting fact: a 2016 study by The Boston Consulting Group (BCG) across four markets – the US, China, France and Germany – showed that the first thing most car buyers (50-70%) do is go online to compare models and prices on the websites of dealers and m</div></div>
+</div>
+<div><p id="big"><a href="https://www.hdfcbank.com/personal/learning-center"style="color:navy; text-decoration: underline;text-decoration-color:RGB(242, 243, 244);">Read All</p></div></div></a>
+<div><a href="https://www.hdfcbank.com/htdocs/aboutus/awards/barrons-list.html"><img src="https://www.hdfcbank.com/assets/images/Joboffer.jpg"height="270px"width"=290px"></div></div></a>
+<div id="timg">
+<div><a href="https://offers.smartbuy.hdfcbank.com/?src=hp_nav5&_ga=2.181192992.686592019.1539255229-1389672563.1538740456"><img src="https://www.hdfcbank.com/assets/images/C2P-3D-Web-Banner_300-x-126.jpg"height="120px"width="312px"></div></a>
+<div><a href="https://offers.smartbuy.hdfcbank.com/?src=hp_nav5&_ga=2.181192992.686592019.1539255229-1389672563.1538740456"><img src="https://www.hdfcbank.com/assets/images/Cancer-care-Web-Banner_300-x-126.jpg"height="120px"width="312px"></div></a>
+<div><a href="https://offers.smartbuy.hdfcbank.com/?src=hp_nav5&_ga=2.181192992.686592019.1539255229-1389672563.1538740456"><img src="https://www.hdfcbank.com/assets/images/Taxercise_Super-income-Web-Banner_300-x-126.jpg"height="120px"width="312px"></div></div></a>
+<div class="footer">
+<ul class="z1"><li id="z" class="z4">Careers</li>
+<li id="z">About us</li>
+<li id="z" class="z3">CSR</li>
+<li id="z">Forms Center</li>
+<li id="z"class="z3">Service charge & fees</li>
+<li id="z">IdeaBank</li>
+<li id="z" class="z3">Feedback</li>
+<li id="z">Important Message</li>
+<li id="z"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEU6VZ////81Up0yT5xgc61+jbsvTZyXo8hFXaOirM0nSJmlrs7O1OUkRpkfQ5doerLr7fTHzeE9WKHV2umHlcDy9Pnd4eyut9O1vtdZbat5ibmWoceGk7/M0eSrs9G/xtxMY6ZvgLVIYaWJ8OFBAAAC40lEQVR4nO3c63KqMBRAYU9iqaLg/d7W2vd/yE5nzt/ihjTsvTNrPQDDNxIDJDqZEBERERERERERERERERFZL4QYqydF7ZMcXKyadju97m/zzhZ7n8SqCY/T8Z+kXa19sv2LdbztRLqflu6EsXm8i3kOhbF9WffxeROG9tHT50xYbTd9fb6E7Vt/nydhqO9DgH6EcdZ7BPoSVpdhPjfCajUU6EQYhwN9COPncKALYdgeChe2socIv8LmnAJ0IIzXJKADYZMyCD0IE69R+8Iw+F7Gi7CVv67wKQzTVKB1YbMsXBhSbtdcCOtT6cLUudC8MD7SgbaFdepsb17YDHw140YYZn8ANC2M+78QWl57qvoMw8PuvHC3fljL70k3q7qu/a0Bt9LZ8HhpgvbJDioKgffWp28SvqRA7TMdmvDJ6egWKBV+Ob1EJ1LhyfB09yyZ0PFHKBMeG+3TTEgkPFXap5mQSGj5nuxpIuELQsshRGg/hAjthxCh/RAitB9ChPZDiNB+CBHarwxh6PiJci3ZWnptnv3SWRm4ev2920IgPN86jvDTfKsqrD4EiMR0V98qyceU1kF3iXgEofLy2wjCe/FX6Yful+kIwn3xwpXuOv8Iws/ihcr3NPmFa+UdU/mFS+XdKPmFZ+UtU/mFr8WPQ+3nx/zCi/K2t/xC7VcA2YUH7b2Z2YXqWxezCzfFf4bqmzOzC2/Ff9M8ihdqT4f5hdrDMLtQ+VXiCEL93x7mFiq/ShxBOC9+HL5pTxbZhVPtySK7UNuXXXhQH4a5hWvtZ6fswnf1ySL3GvBZ/yqdbGcdSf4O8q3rCLpL+P8LvxdFu02qjiNo455Vxn6arhAitB9ChPZDiNB+CBHaDyFC+yFEaD+ECO2HEKH9ECK0H0KE9kOI0H4IEdoPIUL7IURoP4QI7YcQof0QIrQfQoT2Q4jQfggR2g8hQvshRGg/hAjthxCh/RAitB9ChPZDiNB+CBH26BsaQkVVLImVewAAAABJRU5ErkJggg=="width="20px"height="20px"></li>
+<li id="z"><img src="data:image/jpeg;base64,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"width="20px"height="20px"></li>
+<li id="z"><img src="data:image/png;base64,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"width="20px"height="20px"></li>
+<li id="z"><img src="https://banner2.kisspng.com/20180319/bwe/kisspng-social-media-google-social-networking-service-icon-google-plus-logo-download-5ab02cc2b90184.1363468615214952347578.jpg"width="30px"height="20px"></li>
+<li id="z"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHNuHEe4QVoxer4MAJcIDSP-v4ng0_j0PWWVVm9_msuwzvcMpV"width="20px"height="20px"></li>
+<li id="z"><img src="data:image/png;base64,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"width="20px"height="20px"></li>
+</ul>
+<ul class="y1"><li id="y1"style="opacity:0.5;">EMI Calculator:</li>
+<li id="y1"><u>Personal loan EMI Calculator</u></li>
+<li id="y1"><u>Car Loan EMI Calculator</u></li>
+<li id="y1"><u>Two Wheeler Loan EMI Calculator</u></li>
+<li id="y1"><u>RD Calculator</u></li>
+<li id="y1"><u>FD Calculator</u></li>
+<li id="y1"><u>Gold Loan calculator</u></li>
+</ul>
+<ul class="x1"><li id="x1"style="opacity:0.5;">HDFC Group Website: </li>
+<li id="x1"><u>HDFC Ltd</u></li>
+<li id="x1"><u>HDFC Securities</u></li>
+<li id="x1"><u>HDFC Mutual Fund</u></li>
+<li id="x1"><u>HDFC Realty</u></li>
+<li id="x1"><u>HDFC Life</u></li>
+<li id="x1"><u>HDFC ERGO</u></li>
+<li id="x1"><u>HDFC Pension</u></li>
+<li id="x1"><u>HDB Financial Services</u></li>
+</ul>
+<div class="join">
+<div>
+<ul class="w1">
+<li id="w" class="w3">Do-Not-Call Registration</li>
+<li id="w" class="w3">Investor Information</li>
+<li id="w" class="w3">US-Patroit Art Certificate</li>
+<li id="w" class="w3">Regulatory Disclosures Section</li>
+<li id="w" class="w3">DNC Dedupe</li>
+<li id="w" class="w3">Use Of Unparliamentary Language By Customers</li>
+<li id="w">Active Channel Partners</li>
+</ul>
+<ul class="v1">
+<li id="v" class="v3">Privacy</li>
+<li id="v" class="v3">Security</li>
+<li id="v" class="v3">Website usage terms</li>
+<li id="v" class="v3">Glossary</li>
+<li id="v" class="v3">Imporant notices</li>
+<li id="v" class="v3">Our Corporate Commitment</li>
+<li id="v" class="v3">Learning Center</li>
+<li id="v" class="v3">Sitemap</li>
+<li id="v" class="v3">Watch Videos</li>
+<li id="v">Privacy Notice EU Users</li>
+</ul></div>
+<div id="vf">
+<div><img src="https://www.hdfcbank.com/assets/images/securebanking-logo.png"height="50px"weight="70px"></div>
+<div><img src="https://www.hdfcbank.com/assets/images/verisign.gif"height="50px"weight="70px"></div>
+</div></div>
+<ul class="u1">
+<li id="u" style="opacity:0.5">Products at a glance     </li>
+<li id="u" class="u3" >Personal</li>
+<li id="u" class="u3" >NRI</li>
+<li id="u" class="u3" >SME</li>
+<li id="u" >Wholesale</li>
+</ul>
+<ul class="t1">
+<li id="t" style="opacity:0.5">© 2018 HDFC Bank Ltd. All rights reserved.</li>
+</ul>
+<ul class="s1">
+<li id="s" style="opacity:0.5">site best viewed in</li>
+<li id="s"class="s4">IE7+,FIrefox 3.5+,Chrome 3+,Safari 5.0+</li>
+<li id="s" style="opacity:0.5">at 1024*768 pixels resolution</li>
+<ul>
+</div>
+
+</body>
+</html>
+
+
+
+
